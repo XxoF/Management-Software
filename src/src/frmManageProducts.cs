@@ -52,5 +52,15 @@ namespace src
         {
             this.Close();
         }
+
+        private void btn_AddProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_UpdateRemoveProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

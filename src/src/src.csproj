@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDeliveryNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeliveryNote.Designer.cs">
+      <DependentUpon>frmDeliveryNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     <Compile Include="frmManageProducts.Designer.cs">
       <DependentUpon>frmManageProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReceiveNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReceiveNote.Designer.cs">
+      <DependentUpon>frmReceiveNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmLogin.resx">
@@ -75,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageProducts.resx">
       <DependentUpon>frmManageProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReceiveNote.resx">
+      <DependentUpon>frmReceiveNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

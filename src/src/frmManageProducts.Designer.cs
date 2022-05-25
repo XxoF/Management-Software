@@ -55,6 +55,7 @@ namespace src
             this.btn_AddProduct.TabIndex = 1;
             this.btn_AddProduct.Text = "Add product";
             this.btn_AddProduct.UseVisualStyleBackColor = true;
+            this.btn_AddProduct.Click += new System.EventHandler(this.btn_AddProduct_Click);
             // 
             // btn_UpdateRemoveProduct
             // 
@@ -64,6 +65,7 @@ namespace src
             this.btn_UpdateRemoveProduct.TabIndex = 2;
             this.btn_UpdateRemoveProduct.Text = "Update / Remove product";
             this.btn_UpdateRemoveProduct.UseVisualStyleBackColor = true;
+            this.btn_UpdateRemoveProduct.Click += new System.EventHandler(this.btn_UpdateRemoveProduct_Click);
             // 
             // btn_Close
             // 

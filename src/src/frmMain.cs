@@ -52,7 +52,8 @@ namespace src
 
         private void receiveNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmReceiveNote receiveNote = new frmReceiveNote();
+            receiveNote.ShowDialog();
         }
 
         private void deliveryNoteToolStripMenuItem_Click(object sender, EventArgs e)

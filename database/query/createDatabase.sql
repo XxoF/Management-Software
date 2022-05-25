@@ -52,15 +52,14 @@ CREATE TABLE [dbo].[tblOrder](
 GO
 
 
-
 CREATE TABLE [dbo].[tblOrderProduct](
-	[ID] [int] NOT NULL PRIMARY KEY,
-	[ProductID] [int] NOT NULL,
 	[OrderID] [int] NOT NULL,
+	[ProductID] [int] NOT NULL,
 	[Quantity] [decimal](5,0) NOT NULL,
 	[Price] [decimal](18,2) NOT NULL,
 	FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
 	FOREIGN KEY ([OrderID]) REFERENCES [tblOrder](ID),
+	PRIMARY KEY ([OrderID], [ProductID])
 )
 GO
 
@@ -83,11 +82,11 @@ GO
 
 
 CREATE TABLE [dbo].[tblReceiveProduct](
-	[ID] [int] NOT NULL PRIMARY KEY,
-	[ProductID] [int] NOT NULL,
 	[ReceiveID] [int] NOT NULL,
+	[ProductID] [int] NOT NULL,
 	[Quantity] [decimal](5,0) NOT NULL,
 	FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
 	FOREIGN KEY ([ReceiveID]) REFERENCES [tblReceiveNote](ID),
+	PRIMARY KEY ([ReceiveID], [ProductID])
 )
 GO
