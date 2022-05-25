@@ -84,5 +84,16 @@ namespace src
         {
 
         }
+
+        private void storeManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewStoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageProducts mngProducts = new frmManageProducts();
+            mngProducts.ShowDialog();
+        }
     }
 }
