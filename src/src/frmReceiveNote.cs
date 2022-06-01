@@ -62,12 +62,27 @@ namespace src
         private void button1_Click(object sender, EventArgs e)
         {
 
-            
+            /*
             int id = Int32.Parse(textBox2.Text);
             string name = textBox1.Text;
             int price = Int32.Parse(textBox3.Text);
             int quantity = Int32.Parse(textBox4.Text);
+            */
 
+            ListViewItem item = new ListViewItem(textBox2.Text);
+            item.SubItems.Add(textBox1.Text);
+            item.SubItems.Add(textBox3.Text);
+            item.SubItems.Add(textBox4.Text);
+
+            listView1.Items.Add(item);
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
+            textBox2.Focus();
+
+            /* 
             try {
                 idList.Add(id);
                 nameList.Add(name);
@@ -80,7 +95,7 @@ namespace src
             {
                 MessageBox.Show(ex.Message);
             }
-
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -149,6 +164,22 @@ namespace src
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_removeProduct_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count > 0)
+                listView1.Items.Remove(listView1.SelectedItems[0]);
         }
     }
 }

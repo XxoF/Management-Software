@@ -51,7 +51,6 @@ CREATE TABLE [dbo].[tblOrder](
 )
 GO
 
-
 CREATE TABLE [dbo].[tblOrderProduct](
 	[OrderID] [int] NOT NULL,
 	[ProductID] [int] NOT NULL,
@@ -59,7 +58,6 @@ CREATE TABLE [dbo].[tblOrderProduct](
 	[Price] [decimal](18,2) NOT NULL,
 	FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
 	FOREIGN KEY ([OrderID]) REFERENCES [tblOrder](ID),
-	PRIMARY KEY ([OrderID], [ProductID])
 )
 GO
 
