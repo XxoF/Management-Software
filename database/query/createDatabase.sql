@@ -25,24 +25,24 @@ Insert Into [tblUsers] VALUES('User3', 'User Test 4', '123456', '1')
 
 
 CREATE TABLE [dbo].[tblProduct](
-	[ID] [int] NOT NULL PRIMARY KEY,
+	[ID] [nchar](20) NOT NULL PRIMARY KEY,
 	[Name] [nvarchar](50) NOT NULL,
 	[Price] [decimal](18,2) NOT NULL,
 	[Quantity] [decimal](10,0) NOT NULL ,
 )
 GO
 
-Insert Into [tblProduct] VALUES(1, 'Dep di trong nha', '50000', '100')
-Insert Into [tblProduct] VALUES(2, 'Chuot khong day', '69000', '30')
-Insert Into [tblProduct] VALUES(3, 'Ao thun nam', '45000', '10')
-Insert Into [tblProduct] VALUES(4, 'Day microphone', '10000', '30')
-Insert Into [tblProduct] VALUES(5, 'Iphone 13', '13000000', '15')
+Insert Into [tblProduct] VALUES('1', 'Dep di trong nha', '50000', '100')
+Insert Into [tblProduct] VALUES('2', 'Chuot khong day', '69000', '30')
+Insert Into [tblProduct] VALUES('3', 'Ao thun nam', '45000', '10')
+Insert Into [tblProduct] VALUES('4', 'Day microphone', '10000', '30')
+Insert Into [tblProduct] VALUES('5', 'Iphone 13', '13000000', '15')
 Insert Into [tblProduct] VALUES('6', 'Lot chuot may tinh', '15000', '200')
 GO
 
 
 CREATE TABLE [dbo].[tblOrder](
-	[ID] [int] NOT NULL PRIMARY KEY,
+	[ID] [nchar](20) NOT NULL PRIMARY KEY,
 	[CreateTime] [datetime] NOT NULL,
 	[OrderStatus] [nvarchar](50) NOT NULL,
 	[PaymentMethod] [nvarchar](50) NOT NULL,
@@ -52,10 +52,10 @@ CREATE TABLE [dbo].[tblOrder](
 GO
 
 CREATE TABLE [dbo].[tblOrderProduct](
-	[OrderID] [int] NOT NULL,
-	[ProductID] [int] NOT NULL,
-	[Quantity] [decimal](5,0) NOT NULL,
+	[OrderID] [nchar](20) NOT NULL,
+	[ProductID] [nchar](20) NOT NULL,
 	[Price] [decimal](18,2) NOT NULL,
+	[Quantity] [decimal](5,0) NOT NULL,
 	FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
 	FOREIGN KEY ([OrderID]) REFERENCES [tblOrder](ID),
 )
@@ -64,9 +64,9 @@ GO
 
 CREATE TABLE [dbo].[tblDeliveryNote](
 	[ID] [int] NOT NULL PRIMARY KEY,
+	[OrderID] [nchar](20) NOT NULL ,
+	[TotalPrice] [decimal](18,2) NOT NULL,
 	[CreateTime] [datetime] NOT NULL,
-	[Price] [decimal](18,2) NOT NULL,
-	[orderID] [int] NOT NULL ,
 	FOREIGN KEY ([OrderID]) REFERENCES [tblOrder](ID),
 )
 GO
@@ -81,10 +81,13 @@ GO
 
 CREATE TABLE [dbo].[tblReceiveProduct](
 	[ReceiveID] [int] NOT NULL,
-	[ProductID] [int] NOT NULL,
+	[ProductID] [nchar](20) NOT NULL,
+	[Price] [decimal](8,0) NOT NULL,
 	[Quantity] [decimal](5,0) NOT NULL,
-	FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
+
+	--FOREIGN KEY ([ProductID]) REFERENCES [tblProduct](ID),
 	FOREIGN KEY ([ReceiveID]) REFERENCES [tblReceiveNote](ID),
-	PRIMARY KEY ([ReceiveID], [ProductID])
 )
 GO
+
+--drop table [tblReceiveProduct]
