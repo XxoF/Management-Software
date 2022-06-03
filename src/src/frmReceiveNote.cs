@@ -180,30 +180,40 @@ namespace src
                 }
 
                 MyReader.Close();
+
+
+
+                /********** Update new Receive Product **********/
+                // If Product exist then update quantity and price
+                String findProduct = "SELECT * FROM tblProduct where ID = " + ID;
+                SqlCommand findProductCMD = new SqlCommand(findProduct, con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    String updateQuantity = "UPDATE tblProduct SET Quantity = Quantity + " + quantity + " where ID = " + ID;
+                    SqlCommand updateQuantityCMD = new SqlCommand(updateQuantity, con);
+
+                    try
+                    {
+                        MessageBox.Show(updateQuantity);
+                        MyReader = updateQuantityCMD.ExecuteReader();     // Here our query will be executed and data saved into the database.
+                        MessageBox.Show("Update product: " + name);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Check item: " + updateQuantity);
+                    }
+
+                    MyReader.Close();
+                }
             }
 
 
-
-            /*
-            // Update Products to Receive Note
-            for (int i = 0; i < idList.Count; i++)
-            {
-                int id = idList[i];
-                string name = nameList[i];
-                int price = priceList[i];
-                int quantity = quantityList[i];
-
-                /*
-                String updateProductCommand = "Insert Into[tblReceiveProduct] VALUES(" 
-                    + receiveID + ", " + id + "," + quan
-
-
-                MessageBox.Show("Added items: " + id.ToString() + "," + name +
-                    "," + price.ToString() + "," + quantity.ToString());
-            }
 
             con.Close();
-            */
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
