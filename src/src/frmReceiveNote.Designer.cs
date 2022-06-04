@@ -39,8 +39,6 @@ namespace src
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.btn_Close = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,6 +46,7 @@ namespace src
             this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_removeProduct = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +73,7 @@ namespace src
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(199, 106);
+            this.label3.Location = new System.Drawing.Point(200, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 2;
@@ -84,7 +83,7 @@ namespace src
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(473, 108);
+            this.label4.Location = new System.Drawing.Point(483, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 25);
             this.label4.TabIndex = 3;
@@ -111,7 +110,7 @@ namespace src
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox3.Location = new System.Drawing.Point(261, 103);
+            this.textBox3.Location = new System.Drawing.Point(262, 102);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(164, 30);
             this.textBox3.TabIndex = 6;
@@ -138,32 +137,13 @@ namespace src
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(530, 501);
+            this.button2.Location = new System.Drawing.Point(461, 483);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 56);
+            this.button2.Size = new System.Drawing.Size(189, 96);
             this.button2.TabIndex = 9;
-            this.button2.Text = "Add Note";
+            this.button2.Text = "Receive Product";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(208, 514);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 25);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Note ID";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox5.Location = new System.Drawing.Point(323, 511);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(134, 30);
-            this.textBox5.TabIndex = 12;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // btn_Close
             // 
@@ -201,7 +181,7 @@ namespace src
             // Product_name
             // 
             this.Product_name.Text = "Product Name";
-            this.Product_name.Width = 150;
+            this.Product_name.Width = 359;
             // 
             // Price
             // 
@@ -223,16 +203,24 @@ namespace src
             this.btn_removeProduct.UseVisualStyleBackColor = true;
             this.btn_removeProduct.Click += new System.EventHandler(this.btn_removeProduct_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(432, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "VND";
+            // 
             // frmReceiveNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1135, 591);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_removeProduct);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btn_Close);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox4);
@@ -263,8 +251,6 @@ namespace src
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader ID;
@@ -272,5 +258,6 @@ namespace src
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader Quantity;
         private System.Windows.Forms.Button btn_removeProduct;
+        private System.Windows.Forms.Label label6;
     }
 }

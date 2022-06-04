@@ -138,7 +138,7 @@ namespace src
             try
             {
                 MyReader = cmd2.ExecuteReader();     // Here our query will be executed and data saved into the database.
-                MessageBox.Show(newReceivecommand);
+                //MessageBox.Show(newReceivecommand);
                 MessageBox.Show("Save Received Note");
             }
             catch (Exception ex)
@@ -169,9 +169,9 @@ namespace src
                 SqlCommand cmd3 = new SqlCommand(updateReceiveProductCMD, con);
                 try
                 {
-                    MessageBox.Show(updateReceiveProductCMD);
+                    //MessageBox.Show(updateReceiveProductCMD);
                     MyReader = cmd3.ExecuteReader();     // Here our query will be executed and data saved into the database.
-                    MessageBox.Show("Saved + product: " + name);
+                    MessageBox.Show("Received product: " + name);
                 }
                 catch (Exception ex)
                 {
@@ -183,21 +183,23 @@ namespace src
 
 
 
-                /********** Update new Receive Product **********/
-                // If Product exist then update quantity and price
-                String findProduct = "SELECT * FROM tblProduct where ID = " + ID;
+                /********** Update  Product **********/
+                // Find if product is exist?
+                String findProduct = "SELECT * FROM [tblProduct] where ID = '" + ID + "'";
                 SqlCommand findProductCMD = new SqlCommand(findProduct, con);
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                SqlDataAdapter da = new SqlDataAdapter(findProductCMD);
                 da.Fill(dt);
+
                 if (dt.Rows.Count > 0)
                 {
+                    // Product exist
                     String updateQuantity = "UPDATE tblProduct SET Quantity = Quantity + " + quantity + " where ID = " + ID;
                     SqlCommand updateQuantityCMD = new SqlCommand(updateQuantity, con);
 
                     try
                     {
-                        MessageBox.Show(updateQuantity);
+                        //MessageBox.Show(updateQuantity);
                         MyReader = updateQuantityCMD.ExecuteReader();     // Here our query will be executed and data saved into the database.
                         MessageBox.Show("Update product: " + name);
                     }
@@ -209,9 +211,29 @@ namespace src
 
                     MyReader.Close();
                 }
+                else // Cannot find Product 
+                {
+                    String createNewProduct = "Insert into tblProduct values (" + ID + ",'" +
+                                                name + "'," + price + "," + quantity + ")";
+                    SqlCommand createNewProductCMD = new SqlCommand(createNewProduct, con);
+
+                    try
+                    {
+                        //MessageBox.Show(createNewProduct);
+                        MyReader = createNewProductCMD.ExecuteReader();     // Here our query will be executed and data saved into the database.
+                        MessageBox.Show("Update new product: " + name);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Check item: " + createNewProductCMD);
+                    }
+
+                    MyReader.Close();
+                }
             }
 
-
+            listView1.Clear();
 
             con.Close();
         }
